@@ -1,11 +1,11 @@
 <template>
-  <div id="">
-
+  <div class='page-landing'>
+    <h1>IM A LANDING PAGE</h1>
   </div>
 </template>
 <script>
 export default {
-  name: "",
+  name: "LandingPage",
   data(){
     return {
 
