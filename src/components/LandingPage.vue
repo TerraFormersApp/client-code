@@ -1,15 +1,15 @@
 <template>
-  <div class='page-landing'>
-    <!-- <router-link to='/editor'> -->
+  <div class="page-landing">
+    <router-link to=/home>
       <div class="">
         <lottie :options="defaultOptions" :height="600" :width="600" v-on:animCreated="handleAnimation"/>
       </div>
-    <!-- </router-link> -->
+    </router-link>
   </div>
 </template>
 <script>
-import Lottie from '../../Lottie.vue'
-import * as animationData from '../../static/TF.json';
+import Lottie from "../../Lottie.vue"
+import * as animationData from "../../static/TF.json";
 
 export default {
   name: "LandingPage",
@@ -21,7 +21,7 @@ export default {
     }
   },
   components: {
-  'lottie': Lottie
+  	"lottie": Lottie
   },
   methods: {
     handleAnimation: function (anim) {
@@ -46,5 +46,6 @@ export default {
     }
   }
 }</script>
+
 <style scoped>
 </style>
