@@ -2,7 +2,7 @@
   <div>
     <Navbar/>
     <div class="logo">
-    <img src="https://solarsystem.nasa.gov/system/stellar_items/list_view_images/2_mercury_480x320_new.jpg" alt="Logo Here">
+    <img id= "planet1" src="../../static/images/planet.png" alt="Logo Here">
     </div>
     <div class="jumbotron">
     <h1 class="display-3">Geetings, Terraformer!</h1>
@@ -24,6 +24,9 @@ export default {
   display: flex;
   justify-content: center;
   margin: 2rem;
+}
+#planet1 {
+  height: 20rem;
 }
 </style>
 

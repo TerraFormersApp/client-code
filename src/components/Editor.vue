@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="planetImage">
-        <img src="https://www.nature.com/polopoly_fs/7.44819.1498125747!/image/WEB-GettyImages-685026469.jpg_gen/derivatives/landscape_630/WEB-GettyImages-685026469.jpg" alt="placeholder for image">
+        <img src="../../static/images/rotatingGif.gif" alt="placeholder for image">
     </div>
     <form @submit.prevent="postPlanet">
         <div class="form-group">
@@ -95,50 +95,56 @@
 <script>
 export default {
   name: "Editor",
-	data(){
-		return {
-			planetName: "",
-			waterPercent: 0,
-			waterColor: "",
-			landPercent: 0,
-			landColor: "",
-			skyColor: "",
-			mountains: false,
-			trees: false,
-			wind: false,
-			hurricanes: false,
-		}
-	},
-	methods: {
-		postPlanet(){
-			if (this.planetName === "" || this.waterPercent === "" || this.waterColor === "" || this.landColor === "" || this.skyColor === "") {
-				alert("Please enter all fields for your planet!");
-			} else {
-				fetch("http://localhost:3000/planets", {
-					method: "post",
-					body: JSON.stringify({
-						name: `${this.planetName}`,
-						water_percent: 0,
-						water_color: `${this.waterColor}`,
-						sky_color: `${this.skyColor}`,
-						mountains: `${this.mountains}`,
-						trees: `${this.trees}`,
-						land_percent: `${this.landPercent}`,
-						land_color: `${this.trees}`,
-						hurricane: `${this.hurricanes}`,
-						wind: `${this.wind}`,
-						thumbnail_image: "",
-					}),
-					headers: new Headers({
-						"Content-Type": "application/json"
-					})
-				})
-				.then(response => response.json())
-				.then(response => console.log(response))
-			}
-		}
-	}
-}
+  data() {
+    return {
+      planetName: "",
+      waterPercent: 0,
+      waterColor: "",
+      landPercent: 0,
+      landColor: "",
+      skyColor: "",
+      mountains: false,
+      trees: false,
+      wind: false,
+      hurricanes: false
+    };
+  },
+  methods: {
+    postPlanet() {
+      if (
+        this.planetName === "" ||
+        this.waterPercent === "" ||
+        this.waterColor === "" ||
+        this.landColor === "" ||
+        this.skyColor === ""
+      ) {
+        alert("Please enter all fields for your planet!");
+      } else {
+        fetch("http://localhost:3000/planets", {
+          method: "post",
+          body: JSON.stringify({
+            name: `${this.planetName}`,
+            water_percent: 0,
+            water_color: `${this.waterColor}`,
+            sky_color: `${this.skyColor}`,
+            mountains: `${this.mountains}`,
+            trees: `${this.trees}`,
+            land_percent: `${this.landPercent}`,
+            land_color: `${this.trees}`,
+            hurricane: `${this.hurricanes}`,
+            wind: `${this.wind}`,
+            thumbnail_image: ""
+          }),
+          headers: new Headers({
+            "Content-Type": "application/json"
+          })
+        })
+          .then(response => response.json())
+          .then(response => console.log(response));
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
