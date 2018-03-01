@@ -1,6 +1,8 @@
 <template>
   <div>
-    <img src="https://www.nature.com/polopoly_fs/7.44819.1498125747!/image/WEB-GettyImages-685026469.jpg_gen/derivatives/landscape_630/WEB-GettyImages-685026469.jpg" alt="placeholder for image">
+    <div id="planetImage"> 
+        <img src="https://www.nature.com/polopoly_fs/7.44819.1498125747!/image/WEB-GettyImages-685026469.jpg_gen/derivatives/landscape_630/WEB-GettyImages-685026469.jpg" alt="placeholder for image">
+    </div>     
     <form action="">
         <div class="form-group">
             <label class="col-form-label" for="inputDefault">Your Planet's Name</label>
@@ -34,7 +36,7 @@
                 <option value="Cornflowerblue">Cornflowerblue</option>
             </select>
         </div>
-                <div class="form-group">
+        <div class="form-group">
             <select class="custom-select">
                 <option selected="">Choose land color</option>
                 <option value="Red">Red</option>
@@ -59,41 +61,26 @@
             <input class="custom-control-input" id="customCheck1" checked="" type="checkbox">
             <label class="custom-control-label" for="customCheck1">Mountains</label>
             </div>
-            <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="customCheck2" disabled="" type="checkbox">
-            <label class="custom-control-label" for="customCheck2">Mountains</label>
-            </div>
         </div>
         <div class="form-group">
             <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="customCheck1" checked="" type="checkbox">
-            <label class="custom-control-label" for="customCheck1">Trees</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="customCheck2" disabled="" type="checkbox">
+            <input class="custom-control-input" id="customCheck2" checked="" type="checkbox">
             <label class="custom-control-label" for="customCheck2">Trees</label>
             </div>
         </div>
         <div class="form-group">
             <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="customCheck1" checked="" type="checkbox">
-            <label class="custom-control-label" for="customCheck1">Wind</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="customCheck2" disabled="" type="checkbox">
-            <label class="custom-control-label" for="customCheck2">Wind</label>
+            <input class="custom-control-input" id="customCheck3" checked="" type="checkbox">
+            <label class="custom-control-label" for="customCheck3">Wind</label>
             </div>
         </div>
         <div class="form-group">
             <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="customCheck1" checked="" type="checkbox">
-            <label class="custom-control-label" for="customCheck1">Hurricanes</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="customCheck2" disabled="" type="checkbox">
-            <label class="custom-control-label" for="customCheck2">Hurricanes</label>
+            <input class="custom-control-input" id="customCheck4" checked="" type="checkbox">
+            <label class="custom-control-label" for="customCheck4">Hurricanes</label>
             </div>
         </div>
+        <button type="submit" class="btn btn-primary">Save Your Planet</button>
     </form>
   </div>
 </template>
@@ -102,4 +89,10 @@ export default {
   name: "Editor"
 };
 </script>
-
+<style scoped>
+#planetImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
