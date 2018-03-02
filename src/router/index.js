@@ -4,6 +4,7 @@ import LandingPage from "@/components/LandingPage"
 import Editor from "@/components/Editor"
 import Home from "@/components/Home"
 import PlanetCards from "@/components/PlanetCards"
+import Launches from "@/components/Launches"
 
 Vue.use(Router)
 
@@ -29,6 +30,12 @@ export default new Router({
       path: "/planet-cards",
       name: "PlanetCards",
       component: PlanetCards
+
+    },
+    {
+      path: "/launches",
+      name: "Launches",
+      component: Launches
 
     }
   ]

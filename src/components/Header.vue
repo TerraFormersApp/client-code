@@ -10,6 +10,7 @@
 		    <ul class="navbar-nav mr-auto">
 					<li class="nav-link"><router-link to="/editor">Create Planet</router-link></li>
 					<li><router-link class="nav-link" to="/planet-cards">Existing Terraforms</router-link></li>
+					<li><router-link class="nav-link" to="/launches">Travel Deals</router-link></li>
 					<li><router-link class="nav-link" to="/about">About</router-link></li>
 		    </ul>
 		  </div>

@@ -6,7 +6,7 @@
     <form @submit.prevent="postPlanet">
         <div class="form-group">
             <label class="col-form-label" for="inputDefault">Your Planet's Name</label>
-            <input v-model="planetName" class="form-control" placeholder="Default input" id="inputDefault" type="text">
+            <input v-model="planetName" class="form-control" placeholder="Please enter a name for your new planet." id="inputDefault" type="text">
         </div>
         <div class="form-group">
             <select v-model="waterPercent" class="custom-select">
@@ -89,12 +89,23 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Save Your Planet</button>
+				<p></p>
+				<p></p>
+				<AddPlanetModal v-if="showModal" @close="showModal = false">
+					<h3 slot="header">{{this.serverResponse}}</h3>
+				</AddPlanetModal>
     </form>
   </div>
 </template>
+
 <script>
+import AddPlanetModal from "@/components/AddPlanetModal";
+
 export default {
   name: "Editor",
+	components: {
+		AddPlanetModal
+	},
   data() {
     return {
       planetName: "",
@@ -106,7 +117,9 @@ export default {
       mountains: false,
       trees: false,
       wind: false,
-      hurricanes: false
+      hurricanes: false,
+			serverResponse: "",
+			showModal: false
     };
   },
   methods: {
@@ -140,7 +153,22 @@ export default {
           })
         })
           .then(response => response.json())
-          .then(response => console.log(response));
+          .then(response => {
+						if (response) {
+							this.showModal = true;
+							this.planetName= "",
+							this.waterPercent= 0,
+							this.waterColor= "",
+							this.landPercent= 0,
+							this.landColor= "",
+							this.skyColor= "",
+							this.mountains= false,
+							this.trees= false,
+							this.wind= false,
+							this.hurricanes= false,
+							this.serverResponse = response;
+						}
+					});
       }
     }
   }
