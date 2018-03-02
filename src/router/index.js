@@ -4,6 +4,7 @@ import LandingPage from "@/components/LandingPage"
 import Editor from "@/components/Editor"
 import Home from "@/components/Home"
 import PlanetCards from "@/components/PlanetCards"
+import About from "@/components/About"
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       name: "PlanetCards",
       component: PlanetCards
 
+    },
+    {
+      path: "/about",
+      name: "About",
+      component: About
     }
   ]
 })
