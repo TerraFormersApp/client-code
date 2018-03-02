@@ -42,9 +42,19 @@ export default {
       })
     },
     faceColorChange(){
+      let index = Math.floor(Math.random() * 263)
       this.geometry.colorsNeedUpdate = true;
       let landColor = this.landColor.split('#')[1]
-      this.geometry.faces[Math.floor(Math.random() * 263)].color.setHex('0x'+landColor)
+      this.geometry.faces[index].color.setHex('0x'+landColor)
+      this.geometry.faces[index*2].color.setHex('0x'+landColor)
+      this.geometry.faces[index-1].color.setHex('0x'+landColor)
+      this.geometry.faces[index+1].color.setHex('0x'+landColor)
+      this.geometry.faces[index+3].color.setHex('0x'+landColor)
+      this.geometry.faces[index+25].color.setHex('0x'+landColor)
+      this.geometry.faces[index+24].color.setHex('0x'+landColor)
+      this.geometry.faces[index-24].color.setHex('0x'+landColor)
+      this.geometry.faces[index-25].color.setHex('0x'+landColor)
+      this.geometry.faces[index-3].color.setHex('0x'+landColor)
     }
   },
   updated(){
