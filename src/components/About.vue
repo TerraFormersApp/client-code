@@ -11,7 +11,7 @@
             <h3 class="card-header">Technologies Used</h3>
             <img style="height: auto; width: 100%; display: block;" src="../../static/images/techUsed.png" alt="Card image">
         </div>
-        <div class="card text-white bg-primary mb-3" style="width: 92%;">
+        <div class="card text-white bg-primary mb-3" style="width: 70   %;">
         <div class="card-header">Our Team</div>
         </div>
         <div class="teammates">
@@ -51,12 +51,22 @@ export default {
   flex-flow: row;
 }
 #teammate {
-  width: 30%;
   margin: 4px;
   overflow: hidden;
 }
 #teammate img {
   border-radius: 5px;
+}
+@media screen and (max-width: 775px) {
+  #temmate {
+    width: 250px;
+  }
+  .teammates {
+    display: block;
+  }
+  .card-body {
+    width: 180%;
+  }
 }
 </style>
 
