@@ -78,7 +78,7 @@
         </div>
         <div class="form-group">
             <div class="custom-control custom-checkbox">
-            <input v-model="wind"class="custom-control-input" id="customCheck3" checked="" type="checkbox">
+            <input v-model="wind" class="custom-control-input" id="customCheck3" checked="" type="checkbox">
             <label class="custom-control-label" for="customCheck3">Wind</label>
             </div>
         </div>

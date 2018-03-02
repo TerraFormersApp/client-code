@@ -5,6 +5,7 @@ import Editor from "@/components/Editor"
 import Home from "@/components/Home"
 import PlanetCards from "@/components/PlanetCards"
 import Launches from "@/components/Launches"
+import About from "@/components/About"
 
 Vue.use(Router)
 
@@ -36,7 +37,11 @@ export default new Router({
       path: "/launches",
       name: "Launches",
       component: Launches
-
+    },
+    {
+      path: "/about",
+      name: "About",
+      component: About
     }
   ]
 })
