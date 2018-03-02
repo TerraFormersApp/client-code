@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="planetImage">
-        <img src="../../static/images/rotatingGif.gif" alt="placeholder for image">
+        <Planet />
     </div>
     <form @submit.prevent="postPlanet">
         <div class="form-group">
@@ -100,11 +100,13 @@
 
 <script>
 import AddPlanetModal from "@/components/AddPlanetModal";
+import Planet from "@/components/Planet";
 
 export default {
   name: "Editor",
 	components: {
-		AddPlanetModal
+		AddPlanetModal,
+    Planet
 	},
   data() {
     return {
@@ -172,8 +174,7 @@ export default {
       }
     }
   }
-};
-</script>
+};</script>
 
 <style scoped>
 #planetImage {
