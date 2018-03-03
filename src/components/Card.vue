@@ -24,10 +24,20 @@ export default {
     };
   },
   methods: {
+    playSound() {
+      var audio = new Audio(
+        "http://soundfxcenter.com/movies/star-wars/8d82b5_Death_Star_Firing_Sound_Effect.mp3"
+      );
+      audio.play();
+    },
     deletePlanet() {
       fetch("http://localhost:3000/planets/" + this.data.id, {
         method: "DELETE"
-      }).then(() => this.fetchPlanets());
+      })
+        .then(() => {
+          this.playSound();
+        })
+        .then(() => this.fetchPlanets());
     },
     updatePlanet() {
       let nameChange = prompt("Rename the planet here:", "");
