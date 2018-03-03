@@ -1,5 +1,6 @@
 <template>
-  <div id="">
+  <div id="Planet">
+		<div ref="sphere"></div>
     <form v-on:submit.prevent='colorValueChange()' >
       <input v-model='colorValue' type="color" name="color" placeholder='#fff'>
       <input type="submit" value='color'>
@@ -8,7 +9,6 @@
       <input v-model='landColor' type="color" name="landColor">
       <input type="submit" value="land color">
     </form>
-    <div ref='sphere'></div>
   </div>
 </template>
 
