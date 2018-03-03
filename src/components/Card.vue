@@ -7,6 +7,8 @@
   		<div class="card-body">
     		<h5 class="card-title">Planet Description:</h5>
     		<p>{{data.planet_description}}</p>
+				<button @click="updatePlanet" type="button" class="btn btn-secondary">Rename Your Planet</button>
+				<button @click="deletePlanet" type="button" class="btn btn-danger">DeathStar Destroy</button>
   		</div>
 		</div>
   </div>
@@ -15,16 +17,45 @@
 <script>
 export default {
   name: "Card",
-	props: ["data"]
-}
+  props: ["data", "fetchPlanets"],
+  data() {
+    return {
+      submission: { name: "" }
+    };
+  },
+  methods: {
+    deletePlanet() {
+      fetch("http://localhost:3000/planets/" + this.data.id, {
+        method: "DELETE"
+      }).then(() => this.fetchPlanets());
+    },
+    updatePlanet() {
+      let nameChange = prompt("Rename the planet here:", "");
+      if (nameChange != null) {
+        this.submission.name = nameChange;
+        console.log(this.submission.name);
+        fetch("http://localhost:3000/planets/" + this.data.id, {
+          method: "put",
+          headers: new Headers({ "Content-Type": "application/json" }),
+          body: JSON.stringify(this.submission)
+        })
+          .then(() => console.log("Name changed!"))
+          .then(() => this.fetchPlanets());
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
 #Card {
-	padding: 5px 10px 5px 10px;
+  padding: 5px 10px 5px 10px;
 }
 
 img {
-	height: 30px
+  height: 30px;
+}
+button {
+  width: 15rem;
 }
 </style>
