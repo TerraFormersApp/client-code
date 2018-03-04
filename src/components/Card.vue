@@ -1,10 +1,11 @@
 <template>
   <div id="Card" :class="{shakeable}">
-		<div class="card border-info mb-3" style="width: 20rem;">
+		<div class="card border-info mb-3" style="width:400px">
   		<div class="card-header">
-				<h3>{{data.name}} <img src="../../static/images/AcidPlanet.gif"></h3>
+				<h3>{{data.name}}</h3>
 			</div>
   		<div class="card-body">
+				<canvas :id="data.name" width="375" height="300"></canvas>
     		<h5 class="card-title">Planet Description:</h5>
     		<p>{{data.planet_description}}</p>
 				<button @click="updatePlanet" type="button" class="btn btn-secondary">Rename Your Planet</button>
@@ -34,6 +35,9 @@ export default {
 			serverResponse: ""
     };
   },
+	mounted() {
+		this.renderPlanet();
+	},
   methods: {
     playSound() {
       var audio = new Audio(
@@ -76,7 +80,16 @@ export default {
 						this.fetchPlanets();
 					});
       }
-    }
+    },
+		renderPlanet(){
+			var planetCanvas = document.getElementById(this.data.name);
+			var planetCTX = planetCanvas.getContext("2d")
+			var planetImage = new Image;
+			planetImage.onload = function(){
+				planetCTX.drawImage(planetImage,0,0);
+			};
+			planetImage.src = this.data.planet_image;
+		}
   }
 };
 </script>
