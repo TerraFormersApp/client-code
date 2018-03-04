@@ -19,7 +19,7 @@
 	      	<label for="planetDescription">Planet Description</label>
 	      	<textarea v-model="planetDescription" class="form-control" id="planetDescription" rows="3" placeholder="Tell us about your fantasy. Who lives on your new planet, what do they do?"></textarea>
 	    	</div>
-				<button type="submit" class="btn btn-primary">Save Your Planet</button>
+				<button type="submit" class="btn btn-primary">Save Your TerraForm</button>
 			</form>
 			<p></p>
 			<AddPlanetModal v-if="showModal" @close="showModal = false">

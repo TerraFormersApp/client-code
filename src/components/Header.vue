@@ -9,7 +9,7 @@
 		  <div class="collapse navbar-collapse" id="navbarColor02">
 				<span class="container">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item"><router-link class="nav-link" to="/editor">Create Planet</router-link></li>
+						<li class="nav-item"><router-link class="nav-link" to="/editor">Create TerraForm</router-link></li>
 						<li class="nav-item"><router-link class="nav-link" to="/planet-cards">Existing Terraforms</router-link></li>
 						<li class="nav-item"><router-link class="nav-link" to="/launches">Travel Deals</router-link></li>
 						<li class="nav-item"><router-link class="nav-link" to="/about">About</router-link></li>
