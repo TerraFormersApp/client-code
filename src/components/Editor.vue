@@ -126,6 +126,7 @@ export default {
   },
   methods: {
     postPlanet() {
+      console.log(document.querySelector('canvas'))
       if (
         this.planetName === "" ||
         this.waterPercent === "" ||

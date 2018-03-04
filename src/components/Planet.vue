@@ -73,6 +73,7 @@ export default {
     this.color = new THREE.Color('#fff')
     this.material = new THREE.MeshBasicMaterial( {color: this.color, vertexColors: THREE.FaceColors } );
     var sphere = new THREE.Mesh( this.geometry, this.material );
+
     scene.add( sphere )
 
     camera.position.z = 10;
