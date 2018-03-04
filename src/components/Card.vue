@@ -6,9 +6,9 @@
 			</div>
   		<div class="card-body">
 				<canvas :id="data.name" width="375" height="300"></canvas>
-    		<h5 class="card-title">Planet Description:</h5>
+    		<h5 class="card-title">TerraForm Description:</h5>
     		<p>{{data.planet_description}}</p>
-				<button @click="updatePlanet" type="button" class="btn btn-secondary">Rename Your Planet</button>
+				<button @click="updatePlanet" type="button" class="btn btn-secondary">Rename Your TerraForm</button>
 				<button @click="destroy" type="button" class="btn btn-danger">DeathStar Destroy</button>
 				<DeletePlanetModal v-if="showModal" @close="showModal = false">
 					<h3 slot="header">{{this.serverResponse}}</h3>
