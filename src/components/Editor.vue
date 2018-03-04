@@ -9,6 +9,7 @@
 			<button type="button" class="btn btn-primary" name="landColor" @click.prevent="faceColorChange()">Add Land</button>
       <input v-model="mountainColorValue" type="color" name="mountainColor" placeholder="#fff">
 			<button type="button" class="btn btn-primary" name="addMountain" @click.prevent="addMountain()"> Add Mountain</button>
+      <button type="button" class="btn btn-primary" name="addTree" @click.prevent="addTree()"> Add Tree</button>
 			<p></p>
 			<form @submit.prevent="postPlanet()">
 				<div class="form-group">
@@ -78,17 +79,11 @@ export default {
     let sphere = this.sphere
     this.scene.add( sphere )
 
-    // var geometry = new THREE.CylinderGeometry(.5, 0, .5, 3, false);
-    // var material = new THREE.MeshBasicMaterial( {color: this.mountainColorValue} );
-    // var cylinder = new THREE.Mesh( geometry, material );
-    // cylinder.position.set(3, Math.random() *2 , Math.random()* 2)
-    // sphere.add( cylinder );
 
     camera.position.z = 10;
     var render = function () {
         requestAnimationFrame(render);
 
-        // cylinder.rotation.y += 0.01;
         sphere.rotation.y += 0.03;
 
         renderer.render(scene, camera);
@@ -109,16 +104,34 @@ export default {
      this.treePositionX = x;
      this.treePositionY = y;
      this.treePositionZ = z;
-},
+   },
+    addTree(){
+      this.randomSpherePoint();
+      var treeGeometry = new THREE.CylinderGeometry(.1, .1, .6, 6, false)
+      var treeMat = new THREE.MeshBasicMaterial({color: 'brown'})
+      var treeTrunk = new THREE.Mesh(treeGeometry, treeMat)
+
+      //
+      treeTrunk.rotation.x += Math.PI/this.treePositionX;
+      treeTrunk.rotation.y += Math.PI/this.treePositionY;
+      treeTrunk.rotation.z += Math.PI/this.treePositionZ;
+
+      var treeTopGeo= new THREE.SphereGeometry(.3, 12, 12)
+      var treeTopMat = new THREE.MeshBasicMaterial( {color: 'green'} );
+      var treeTop = new THREE.Mesh( treeTopGeo, treeTopMat );
+      treeTop.position.set(0,.3,0)
+      treeTrunk.add(treeTop)
+
+      treeTrunk.position.set(this.treePositionX, this.treePositionY, this.treePositionZ)
+      this.sphere.add(treeTrunk);
+    },
     addMountain(){
       this.randomSpherePoint();
-      let index = Math.floor(Math.random() * 20)
-      let coordinates = [{x:0.5, y: 0.88, z: 2.83},{x: 0.0428,y:0.002 , z: 2.999 },{x: 0.124, y:0.01 , z: 2.997},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]
       var geometry = new THREE.CylinderGeometry(.5, 0, .5, 3, false);
       var material = new THREE.MeshBasicMaterial( {color: this.mountainColorValue} );
       var cylinder = new THREE.Mesh( geometry, material );
       cylinder.position.set(this.treePositionX, this.treePositionY, this.treePositionZ)
-      this.sphere.add(cylinder)
+      this.sphere.add(cylinder);
     },
 		colorValueChange(){
 			this.geometry.colorsNeedUpdate = true;
