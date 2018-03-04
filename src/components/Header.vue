@@ -7,12 +7,14 @@
 		  </button>
 
 		  <div class="collapse navbar-collapse" id="navbarColor02">
-		    <ul class="navbar-nav mr-auto">
-					<li class="nav-link"><router-link to="/editor">Create Planet</router-link></li>
-					<li><router-link class="nav-link" to="/planet-cards">Existing Terraforms</router-link></li>
-					<li><router-link class="nav-link" to="/launches">Travel Deals</router-link></li>
-					<li><router-link class="nav-link" to="/about">About</router-link></li>
-		    </ul>
+				<span class="container">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item"><router-link class="nav-link" to="/editor">Create Planet</router-link></li>
+						<li class="nav-item"><router-link class="nav-link" to="/planet-cards">Existing Terraforms</router-link></li>
+						<li class="nav-item"><router-link class="nav-link" to="/launches">Travel Deals</router-link></li>
+						<li class="nav-item"><router-link class="nav-link" to="/about">About</router-link></li>
+					</ul>
+				</span>
 		  </div>
 		</nav>
 	</div>
@@ -21,8 +23,7 @@
 <script>
 export default {
   name: "Header"
-};
-</script>
+};</script>
 
 <style scoped>
 #logo {
