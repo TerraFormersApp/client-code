@@ -8,7 +8,7 @@
 	      </header>
 	       <footer class="modal-footer">
 	          <slot name="footer">
-	            <button type="button" class="btn btn-primary" @click="close">Back to Planet List! </button>
+	            <button type="button" class="btn btn-primary" @click="close">Back to Planet List!</button>
 	        </slot>
 	      </footer>
 	    </div>

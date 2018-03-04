@@ -1,6 +1,6 @@
 <template>
   <div id="Editor" class ="container">
-    <div id="sphereContainer" ref="sphere"></div>
+    <div id="sphereContainer" ref="sphere" class="canvas1"></div>
 		<span>
 		</span>
 			<input v-model="colorValue" type="color" name="waterColor" placeholder="#fff">
@@ -64,10 +64,13 @@ export default {
 	mounted(){
     this.scene = new THREE.Scene();
     let scene = this.scene
-    var camera = new THREE.PerspectiveCamera(50, 500 / 400, 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(50, 375 / 300, 0.1, 1000);
 
-    var renderer = new THREE.WebGLRenderer({alpha: true});
-    renderer.setSize(500, 400);
+    var renderer = new THREE.WebGLRenderer({
+			alpha: true,
+			preserveDrawingBuffer: true
+		});
+    renderer.setSize(375, 300);
     renderer.setClearColor( 0xffffff, 0)
     this.$refs.sphere.appendChild(renderer.domElement)
 
@@ -163,13 +166,13 @@ export default {
       ) {
         alert("Please enter all fields for your planet!");
       } else {
-				// this.planetImage = this.$refs.sphere.toDataURL();
+				this.planetImage = document.getElementsByTagName("canvas")[0].toDataURL("image/png");
         fetch("http://localhost:3000/planets", {
           method: "post",
           body: JSON.stringify({
             name: `${this.planetName}`,
             planet_description: `${this.planetDescription}`,
-            planet_image: "figuring out the link"
+            planet_image: `${this.planetImage}`
           }),
           headers: new Headers({
             "Content-Type": "application/json"
