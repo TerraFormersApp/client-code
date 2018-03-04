@@ -63,7 +63,7 @@ export default {
 	mounted(){
     this.scene = new THREE.Scene();
     let scene = this.scene
-    var camera = new THREE.PerspectiveCamera(50, 500 / 400, 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(50, 375 / 300, 0.1, 1000);
 
     var renderer = new THREE.WebGLRenderer({alpha: true});
     renderer.setSize(500, 400);
@@ -82,6 +82,7 @@ export default {
     var render = function () {
         requestAnimationFrame(render);
 
+        // cylinder.rotation.y += 0.01;
         sphere.rotation.y += 0.03;
 
         renderer.render(scene, camera);
