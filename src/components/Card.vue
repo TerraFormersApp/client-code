@@ -74,9 +74,7 @@ button {
   width: 15rem;
 }
 .shakeable {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 4s;
-  /* When the animation is finished, start again */
   animation-iteration-count: infinite;
 }
 @keyframes shake {
