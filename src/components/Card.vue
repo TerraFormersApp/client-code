@@ -24,25 +24,23 @@ import DeletePlanetModal from "@/components/DeletePlanetModal";
 export default {
   name: "Card",
   props: ["data", "fetchPlanets"],
-	components: {
-		DeletePlanetModal
-	},
+  components: {
+    DeletePlanetModal
+  },
   data() {
     return {
       shakeable: false,
-			showModal: false,
-			nameChange: "",
-			serverResponse: ""
+      showModal: false,
+      nameChange: "",
+      serverResponse: ""
     };
   },
-	mounted() {
-		this.renderPlanet();
-	},
+  mounted() {
+    this.renderPlanet();
+  },
   methods: {
     playSound() {
-      var audio = new Audio(
-        "http://soundfxcenter.com/movies/star-wars/8d82b5_Death_Star_Firing_Sound_Effect.mp3"
-      );
+      var audio = new Audio("../static/Death_Star_Firing_Sound_Effect.mp3");
       audio.play();
     },
     shakeIt() {
@@ -57,39 +55,39 @@ export default {
       fetch("http://localhost:3000/planets/" + this.data.id, {
         method: "DELETE"
       }).then(response => {
-				this.serverResponse = response;
-				this.showModal = true;
-				this.fetchPlanets();
-			});
+        this.serverResponse = response;
+        this.showModal = true;
+        this.fetchPlanets();
+      });
     },
     updatePlanet() {
       this.nameChange = prompt("Rename the planet here:", "");
-			console.log(this.nameChange);
+      console.log(this.nameChange);
       if (this.nameChange != null) {
         fetch("http://localhost:3000/planets/" + this.data.id, {
           method: "put",
           headers: new Headers({ "Content-Type": "application/json" }),
           body: JSON.stringify({
-						name: `${this.nameChange}`
-					})
+            name: `${this.nameChange}`
+          })
         })
           .then(response => response.json())
           .then(response => {
-						this.showModal = true;
-						this.serverResponse = response;
-						this.fetchPlanets();
-					});
+            this.showModal = true;
+            this.serverResponse = response;
+            this.fetchPlanets();
+          });
       }
     },
-		renderPlanet(){
-			var planetCanvas = document.getElementById(this.data.name);
-			var planetCTX = planetCanvas.getContext("2d")
-			var planetImage = new Image;
-			planetImage.onload = function(){
-				planetCTX.drawImage(planetImage,0,0);
-			};
-			planetImage.src = this.data.planet_image;
-		}
+    renderPlanet() {
+      var planetCanvas = document.getElementById(this.data.name);
+      var planetCTX = planetCanvas.getContext("2d");
+      var planetImage = new Image();
+      planetImage.onload = function() {
+        planetCTX.drawImage(planetImage, 0, 0);
+      };
+      planetImage.src = this.data.planet_image;
+    }
   }
 };
 </script>
