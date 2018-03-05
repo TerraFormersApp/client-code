@@ -9,7 +9,8 @@
 			<button type="button" class="btn btn-primary" name="landColor" @click.prevent="faceColorChange()">Add Land</button>
       <input v-model="mountainColorValue" type="color" name="mountainColor" placeholder="#fff">
 			<button type="button" class="btn btn-primary" name="addMountain" @click.prevent="addMountain()"> Add Mountain</button>
-            <button type="button" class="btn btn-primary" name="addMountain" @click.prevent="addMoon()"> Add Moon</button>
+            <input v-model="moonColorValue" type="color" name="moonColor" placeholder="#fff">
+            <button type="button" class="btn btn-primary" name="addMountain" @click.prevent="addMoon()">Add Moon</button>
 			<p></p>
 			<form @submit.prevent="postPlanet()">
 				<div class="form-group">
@@ -44,6 +45,7 @@ export default {
       sphere: null,
       landColor: null,
       mountainColorValue: null,
+      moonColorValue: null,
       mountainGeometry: null,
       scene: null,
       wireframe: false,
@@ -181,7 +183,7 @@ export default {
       ];
       var geometry = new THREE.SphereGeometry(0.5, 16, 10, 8);
       var material = new THREE.MeshBasicMaterial({
-        color: "white"
+        color: this.moonColorValue
       });
       var cylinder = new THREE.Mesh(geometry, material);
       cylinder.position.set(
