@@ -77,7 +77,7 @@ export default {
     this.geometry = new THREE.SphereGeometry( 3, 12, 12 );
     this.geometry.mergeVertices();
     this.color = new THREE.Color('#fff')
-    this.material = new THREE.MeshBasicMaterial( {color: this.color, vertexColors: THREE.FaceColors } );
+    this.material = new THREE.MeshBasicMaterial( {color: this.color, vertexColors: THREE.FaceColors, wireframe: true } );
     this.sphere = new THREE.Mesh( this.geometry, this.material );
     let sphere = this.sphere
     this.scene.add( sphere )
@@ -113,11 +113,11 @@ export default {
       var treeGeometry = new THREE.CylinderGeometry(.1, .1, .6, 6, false)
       var treeMat = new THREE.MeshBasicMaterial({color: 'brown'})
       var treeTrunk = new THREE.Mesh(treeGeometry, treeMat)
-
+      
       //
-      treeTrunk.rotation.x += Math.PI/this.treePositionX;
-      treeTrunk.rotation.y += Math.PI/this.treePositionY;
-      treeTrunk.rotation.z += Math.PI/this.treePositionZ;
+      // treeTrunk.rotation.x += Math.PI/this.treePositionX;
+      // treeTrunk.rotation.y += Math.PI/this.treePositionY;
+      // treeTrunk.rotation.z += Math.PI/this.treePositionZ;
 
       var treeTopGeo= new THREE.SphereGeometry(.3, 12, 12)
       var treeTopMat = new THREE.MeshBasicMaterial( {color: 'green'} );
