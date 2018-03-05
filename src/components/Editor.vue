@@ -9,7 +9,8 @@
 			<button type="button" class="btn btn-primary" name="landColor" @click.prevent="faceColorChange()">Add Land</button>
       <input v-model="mountainColorValue" type="color" name="mountainColor" placeholder="#fff">
 			<button type="button" class="btn btn-primary" name="addMountain" @click.prevent="addMountain()"> Add Mountain</button>
-            <button type="button" class="btn btn-primary" name="addMountain" @click.prevent="addMoon()"> Add Moon</button>
+      <input v-model="moonColorValue" type="color" name="moonColor" placeholder="#fff">
+      <button type="button" class="btn btn-primary" name="addMountain" @click.prevent="moonCounterCheck()">Add Moon</button>
 			<p></p>
 			<form @submit.prevent="postPlanet()">
 				<div class="form-group">
@@ -44,6 +45,7 @@ export default {
       sphere: null,
       landColor: null,
       mountainColorValue: null,
+      moonColorValue: null,
       mountainGeometry: null,
       scene: null,
       wireframe: false,
@@ -58,7 +60,11 @@ export default {
       showModal: false,
       treePositionX: null,
       treePositionY: null,
-      treePositionZ: null
+      treePositionZ: null,
+      moonPositionX: null,
+      moonPositionY: null,
+      moonPositionZ: null,
+      moonCounter: 5
     };
   },
   mounted() {
@@ -85,17 +91,10 @@ export default {
     let sphere = this.sphere;
     this.scene.add(sphere);
 
-    // var geometry = new THREE.CylinderGeometry(.5, 0, .5, 3, false);
-    // var material = new THREE.MeshBasicMaterial( {color: this.mountainColorValue} );
-    // var cylinder = new THREE.Mesh( geometry, material );
-    // cylinder.position.set(3, Math.random() *2 , Math.random()* 2)
-    // sphere.add( cylinder );
-
     camera.position.z = 10;
     var render = function() {
       requestAnimationFrame(render);
 
-      // cylinder.rotation.y += 0.01;
       sphere.rotation.y += 0.03;
 
       renderer.render(scene, camera);
@@ -104,6 +103,26 @@ export default {
     render();
   },
   methods: {
+    moonCounterCheck(){
+      if(this.moonCounter > 0) {
+        this.moonCounter -= 1;
+        this.addMoon();
+      } else {
+        alert("Mo Moons === Mo Problems");
+      }
+    },
+    randomMoonPoint() {
+      var u = Math.random();
+      var v = Math.random();
+      var theta = 2 * Math.PI * u;
+      var phi = Math.acos(2 * v - 1);
+      var x = 0 + 3.7 * Math.sin(phi) * Math.cos(theta);
+      var y = 0 + 3.7 * Math.sin(phi) * Math.sin(theta);
+      var z = 0 + 3.7 * Math.cos(phi);
+      this.moonPositionX = x;
+      this.moonPositionY = y;
+      this.moonPositionZ = z;
+    },
     randomSpherePoint() {
       var u = Math.random();
       var v = Math.random();
@@ -112,7 +131,6 @@ export default {
       var x = 0 + 3 * Math.sin(phi) * Math.cos(theta);
       var y = 0 + 3 * Math.sin(phi) * Math.sin(theta);
       var z = 0 + 3 * Math.cos(phi);
-      console.log(x, y, z);
       this.treePositionX = x;
       this.treePositionY = y;
       this.treePositionZ = z;
@@ -120,28 +138,6 @@ export default {
     addMountain() {
       this.randomSpherePoint();
       let index = Math.floor(Math.random() * 20);
-      let coordinates = [
-        { x: 0.5, y: 0.88, z: 2.83 },
-        { x: 0.0428, y: 0.002, z: 2.999 },
-        { x: 0.124, y: 0.01, z: 2.997 },
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {}
-      ];
       var geometry = new THREE.CylinderGeometry(0.5, 0, 0.5, 3, false);
       var material = new THREE.MeshBasicMaterial({
         color: this.mountainColorValue
@@ -155,39 +151,16 @@ export default {
       this.sphere.add(cylinder);
     },
     addMoon() {
-      this.randomSpherePoint();
-      let index = Math.floor(Math.random() * 20);
-      let coordinates = [
-        { x: 0.5, y: 0.88, z: 2.83 },
-        { x: 0.0428, y: 0.002, z: 2.999 },
-        { x: 0.124, y: 0.01, z: 2.997 },
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {}
-      ];
+      this.randomMoonPoint();
       var geometry = new THREE.SphereGeometry(0.5, 16, 10, 8);
       var material = new THREE.MeshBasicMaterial({
-        color: "white"
+        color: this.moonColorValue
       });
       var cylinder = new THREE.Mesh(geometry, material);
       cylinder.position.set(
-        this.treePositionX,
-        this.treePositionY,
-        this.treePositionZ + 2.5
+        this.moonPositionX,
+        this.moonPositionY,
+        this.moonPositionZ
       );
       this.sphere.add(cylinder);
     },
@@ -244,8 +217,7 @@ export default {
       }
     }
   }
-};
-</script>
+};</script>
 
 <style scoped>
 #sphereContainer {
