@@ -1,19 +1,19 @@
 <template>
   <div id="Planet">
 		<div ref="sphere"></div>
-    <form v-on:submit.prevent='colorValueChange()' >
-      <input v-model='colorValue' type="color" name="color" placeholder='#fff'>
-      <input type="submit" value='color'>
+    <form v-on:submit.prevent="colorValueChange()" >
+      <input v-model="colorValue" type="color" name="color" placeholder="#fff">
+      <input type="submit" value="color">
     </form>
-    <form v-on:submit.prevent='faceColorChange()'>
-      <input v-model='landColor' type="color" name="landColor">
+    <form v-on:submit.prevent="faceColorChange()">
+      <input v-model="landColor" type="color" name="landColor">
       <input type="submit" value="land color">
     </form>
   </div>
 </template>
 
 <script>
-import * as THREE from 'three'
+import * as THREE from "three"
 
 export default {
   name: "Planet",
@@ -36,25 +36,25 @@ export default {
   methods: {
     colorValueChange(){
       this.geometry.colorsNeedUpdate = true;
-      let color = this.colorValue.split('#')[1]
+      let color = this.colorValue.split("#")[1]
       this.geometry.faces.forEach(function(face){
-        face.color.setHex('0x'+color)
+        face.color.setHex("0x"+color)
       })
     },
     faceColorChange(){
       let index = Math.floor(Math.random() * 263)
       this.geometry.colorsNeedUpdate = true;
-      let landColor = this.landColor.split('#')[1]
-      this.geometry.faces[index].color.setHex('0x'+landColor)
-      this.geometry.faces[index*2].color.setHex('0x'+landColor)
-      this.geometry.faces[index-1].color.setHex('0x'+landColor)
-      this.geometry.faces[index+1].color.setHex('0x'+landColor)
-      this.geometry.faces[index+3].color.setHex('0x'+landColor)
-      this.geometry.faces[index+25].color.setHex('0x'+landColor)
-      this.geometry.faces[index+24].color.setHex('0x'+landColor)
-      this.geometry.faces[index-24].color.setHex('0x'+landColor)
-      this.geometry.faces[index-25].color.setHex('0x'+landColor)
-      this.geometry.faces[index-3].color.setHex('0x'+landColor)
+      let landColor = this.landColor.split("#")[1]
+      this.geometry.faces[index].color.setHex("0x"+landColor)
+      this.geometry.faces[index*2].color.setHex("0x"+landColor)
+      this.geometry.faces[index-1].color.setHex("0x"+landColor)
+      this.geometry.faces[index+1].color.setHex("0x"+landColor)
+      this.geometry.faces[index+3].color.setHex("0x"+landColor)
+      this.geometry.faces[index+25].color.setHex("0x"+landColor)
+      this.geometry.faces[index+24].color.setHex("0x"+landColor)
+      this.geometry.faces[index-24].color.setHex("0x"+landColor)
+      this.geometry.faces[index-25].color.setHex("0x"+landColor)
+      this.geometry.faces[index-3].color.setHex("0x"+landColor)
     }
   },
   updated(){
@@ -70,7 +70,7 @@ export default {
     this.$refs.sphere.appendChild(renderer.domElement)
 
     this.geometry = new THREE.SphereGeometry( 3, 12, 12 );
-    this.color = new THREE.Color('#fff')
+    this.color = new THREE.Color("#fff")
     this.material = new THREE.MeshBasicMaterial( {color: this.color, vertexColors: THREE.FaceColors } );
     var sphere = new THREE.Mesh( this.geometry, this.material );
 

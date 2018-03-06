@@ -22,6 +22,7 @@
 				<div class="form-group">
 	      	<label for="planetDescription">Planet Description</label>
 	      	<textarea v-model="planetDescription" class="form-control" id="planetDescription" rows="3" placeholder="Tell us about your fantasy. Who lives on your new planet, what do they do?"></textarea>
+					<small>Maximum 255 characters.</small>
 	    	</div>
 				<button type="submit" class="btn btn-primary">Save Your TerraForm</button>
 			</form>
@@ -35,7 +36,6 @@
 <script>
 import AddPlanetModal from "@/components/AddPlanetModal";
 import * as THREE from "three";
-// import Planet from "@/components/Planet";
 
 export default {
   name: "Editor",
@@ -100,9 +100,7 @@ export default {
       camera.position.z = 10;
       var render = function() {
         requestAnimationFrame(render);
-
-          sphere.rotation.y += 0.03;
-
+				sphere.rotation.y += 0.03;
         renderer.render(scene, camera);
       };
 
@@ -114,7 +112,7 @@ export default {
       while(this.scene.children.length > 0){
         this.scene.remove(this.scene.children[0]);
       }
-
+			this.moonCounter = 5;
       this.createScene();
     },
     addTree(){
@@ -238,7 +236,7 @@ export default {
         this.planetImage = document
           .getElementsByTagName("canvas")[0]
           .toDataURL("image/png");
-        fetch("http://localhost:3000/planets", {
+        fetch("https://terra-former.herokuapp.com/planets", {
           method: "post",
           body: JSON.stringify({
             name: `${this.planetName}`,
@@ -256,6 +254,7 @@ export default {
               this.planetName = "";
               this.planetDescription = "";
               this.serverResponse = response;
+							this.reset();
             }
           });
       }

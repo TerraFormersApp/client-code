@@ -1,6 +1,6 @@
 <template>
   <div id="PlanetCards" class="container">
-		<Card :fetchPlanets="fetchPlanets" v-for="onePlanet in planets" :key="onePlanet.id" :data="onePlanet"/>	
+		<Card :fetchPlanets="fetchPlanets" v-for="onePlanet in planets" :key="onePlanet.id" :data="onePlanet"/>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     fetchPlanets() {
-      fetch("http://localhost:3000/planets")
+      fetch("https://terra-former.herokuapp.com/planets")
         .then(response => response.json())
         .then(planetVar => (this.planets = planetVar.planets));
     }

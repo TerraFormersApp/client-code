@@ -21,7 +21,7 @@ export default {
   name: "DeletePlanetModal",
 	methods: {
 		close() {
-        this.$emit('close');
+        this.$emit("close");
       }
 	}
 }
