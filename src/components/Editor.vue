@@ -262,6 +262,7 @@ export default {
 };</script>
 
 <style scoped>
+
 #sphereContainer {
   display: flex;
   flex-flow: column;
