@@ -240,7 +240,7 @@ export default {
           body: JSON.stringify({
             name: `${this.planetName}`,
             planet_description: `${this.planetDescription}`,
-            planet_image: "figuring out the link"
+            planet_image: `${this.planetImage}`
           }),
           headers: new Headers({
             "Content-Type": "application/json"
