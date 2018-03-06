@@ -229,7 +229,6 @@ export default {
       this.geometry.faces[index - 3].color.setHex("0x" + landColor);
     },
     postPlanet() {
-      console.log(document.querySelector("canvas"));
       if (this.planetName === "" || this.planetDescription === "") {
         alert("Please enter all fields for your planet!");
       } else {
@@ -263,6 +262,7 @@ export default {
 };</script>
 
 <style scoped>
+
 #sphereContainer {
   display: flex;
   flex-flow: column;
