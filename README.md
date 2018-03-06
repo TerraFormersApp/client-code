@@ -1,21 +1,42 @@
-# terraformer
+# TerraFormer
+Discover your new interstellar home! With the end of times fast approaching on earth, select your preferences and identify a planet to make your own.
 
-> A Vue.js project
+[Check it out here!](https://terra-former.firebaseapp.com)
 
-## Build Setup
+# Project Description
+## Create TerraForm
+User can select various components (i.e. world color, ocean color, number of moons, etc.) and see them rendered on a rotating 3D model. User enters name and description to save planet in the database. 
+## Checkout out existing TerraForms
+User can review previously generated planets. Each planet card includes an image of the planet as well as the user's original description. User can update planet name or delete planet from database entirely.
 
-``` bash
-# install dependencies
-npm install
+## Find your launch date
+User can select desired launch date and review top 10 results returned from launch library.
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+# Installation
+After forking and cloning this repo: 
 ```
+cd terraformer
+npm install
+```
+This command will move you into the app directory and install the necessary dependencies.
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# API Integration
+For information about the Knex.js powered database please see the following links:
+
+Deployed Database: 
+https://terra-former.herokuapp.com
+
+Database Github:
+https://github.com/kevinEobrien/terraformerServer
+
+# Author contact
+
+|<img src="https://avatars3.githubusercontent.com/u/31964386?s=400&v=4" width="100"> | Kevin O'Brien                    |
+| ------------- | ------------- |
+| LinkIn   | [/in/kevin-e-obrien/](https://www.linkedin.com/in/kevin-e-obrien/) |
+|<img src="https://avatars1.githubusercontent.com/u/30843350?s=400&v=4" width="100"> | Brian Novak                    |
+| ------------- | ------------- |
+| LinkIn   | [/in/brian-novak/](https://www.linkedin.com/in/brian-novak/) |
+|<img src="https://avatars1.githubusercontent.com/u/32248824?s=400&v=4" width="100"> | Patrick Biffle                    |
+| ------------- | ------------- |
+| LinkIn   | [/in/piglacquer/](https://www.linkedin.com/in/piglacquer/) |
