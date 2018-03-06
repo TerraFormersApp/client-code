@@ -21,7 +21,7 @@ export default {
 	data() {
 		return {
 			tripDuration: 0,
-			tripPrice: 0
+			tripPrice: 0	
 		}
 	},
 	mounted() {
