@@ -4,9 +4,10 @@
 	    <img id= "planet1" src="../../static/images/planet.png" alt="Logo Here">
 	    </div>
 		    <div class="jumbotron">
-		    <h1 class="display-3">Greetings, Terraformer!</h1>
+		    <h1 class="display-3">Greetings, TerraFormer!</h1>
 		    <p class="lead">Your fantasy world awaits. </p>
-		    <p>Earth life getting you down?  Create your own ideal planet to escape to when you need that better place. Navigate to the Planet Creation page or just check out the worlds that other Terraformers have already created.</p>
+		    <p>Earth life getting you down?  Create your own ideal TerraForm to escape to when you need that better place. Navigate to the TerraForm Creation page or just check out the worlds that other TerraFormers have already created.</p>
+				<h3>TerraFormers, Planets in Da Skies!</h3>
 	    </div>
   </div>
 </template>

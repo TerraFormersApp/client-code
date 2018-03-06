@@ -7,8 +7,9 @@
     </router-link>
   </div>
 </template>
+
 <script>
-import Lottie from "../../Lottie.vue"
+import Lottie from "../../Lottie.vue";
 import * as animationData from "../../static/TF.json";
 
 export default {
