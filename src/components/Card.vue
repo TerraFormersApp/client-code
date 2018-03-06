@@ -52,7 +52,7 @@ export default {
       setTimeout(this.deletePlanet, 9000);
     },
     deletePlanet() {
-      fetch("http://localhost:3000/planets/" + this.data.id, {
+      fetch("https://terra-former.herokuapp.com/planets/" + this.data.id, {
         method: "DELETE"
       }).then(response => {
         this.serverResponse = response;
@@ -64,7 +64,7 @@ export default {
       this.nameChange = prompt("Rename the planet here:", "");
       console.log(this.nameChange);
       if (this.nameChange != null) {
-        fetch("http://localhost:3000/planets/" + this.data.id, {
+        fetch("https://terra-former.herokuapp.com/planets/" + this.data.id, {
           method: "put",
           headers: new Headers({ "Content-Type": "application/json" }),
           body: JSON.stringify({
