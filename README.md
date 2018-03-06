@@ -35,8 +35,9 @@ https://github.com/kevinEobrien/terraformerServer
 | ------------- | ------------- |
 | LinkIn   | [/in/kevin-e-obrien/](https://www.linkedin.com/in/kevin-e-obrien/) |
 |<img src="https://avatars1.githubusercontent.com/u/30843350?s=400&v=4" width="100"> | Brian Novak                    |
-| ------------- | ------------- |
+
 | LinkIn   | [/in/brian-novak/](https://www.linkedin.com/in/brian-novak/) |
 |<img src="https://avatars1.githubusercontent.com/u/32248824?s=400&v=4" width="100"> | Patrick Biffle                    |
-| ------------- | ------------- |
+
 | LinkIn   | [/in/piglacquer/](https://www.linkedin.com/in/piglacquer/) |
+| ------------- | ------------- |
