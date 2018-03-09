@@ -27,7 +27,7 @@ Deployed Database:
 https://terra-former.herokuapp.com
 
 Database Github:
-https://github.com/kevinEobrien/terraformerServer
+https://github.com/TerraFormersApp/server-code
 
 # Author contact
 
