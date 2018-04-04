@@ -36,6 +36,11 @@ https://terra-former.herokuapp.com
 Database Github:
 https://github.com/TerraFormersApp/server-code
 
+# License
+MIT License
+
+Copyright (c) 2018 TerraFormersApp
+
 # Author contact
 
 |<img src="https://avatars3.githubusercontent.com/u/31964386?s=400&v=4" width="100"> | Kevin O'Brien                    |
